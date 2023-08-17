@@ -1,6 +1,6 @@
 # QA'ing an Instagram Clone
 
-QA is an important part of the mobile development process at cLabs and we believe the best way to know if you'll be a good fit is to see some of your work first hand. As part of the QA Engineer interview process, candidates are asked to showcase their ability in both manual and automated testing.
+QA is an important part of the mobile development process at Uniswap and we believe the best way to know if you'll be a good fit is to see some of your work first hand. As part of the QA Engineer interview process, candidates are asked to showcase their ability in both manual and automated testing.
 
 This repo is home to an Instagram clone, which is largely based off the work done by [Pavel Foujeu](https://twitter.com/Pavel_FFP) in [this public repo](https://github.com/Doha26/Instagram-clone). We ask that candidates follow the steps to launch the app in an iOS simulator then preform manual testing and automated testing (using the Detox framework).
 
@@ -16,7 +16,7 @@ The below steps will walk you through getting the Instagram clone running on an 
 
 Install `nvm` (allows you to manage multiple versions of Node) by following the instructions here: [https://github.com/nvm-sh/nvm].
 
-Once `nvm` is successfully installed, restart the terminal and run the following commands to install the `npm` versions that [celo-monorepo] will need:
+Once `nvm` is successfully installed, restart the terminal and run the following commands to install the `npm` versions that the repo will need:
 
 ```bash
 # restart the terminal after installing nvm
@@ -100,7 +100,7 @@ You should be all set with an Instagram clone running on an iOS simulator. If yo
 
 ### Submission
 
-Upon completion, please email your Recruiting Partner with an email titled _[Your last name] - cLabs QA Engineer Takehome_ and the following attachments:
+Upon completion, please email your Recruiting Partner with an email titled _[Your last name] - Uniswap QA Engineer Takehome_ and the following attachments:
 
 - A digital copy to your manual testing notes or a link where we can access it (please make sure it's publicly accesible)
 - The `app.spec.ts` file you have written your Detox tests in
