@@ -67,7 +67,7 @@ brew install wix/brew/applesimutils
 Open your terminal and navigate to where you'd like this repo to be downloaded. You can clone the repo by typing the following into the command line:
 
 ```
-git clone https://github.com/celo-org/qa-interview-assignment.git
+git clone https://github.com/Uniswap/qa-interview-assignment.git
 ```
 
 Navigate into the directory and install the necessary dependencies by entering the following into the command line:
