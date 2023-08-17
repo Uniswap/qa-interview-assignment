@@ -62,6 +62,14 @@ brew tap wix/brew
 brew install wix/brew/applesimutils
 ```
 
+If you have a newer Mac, you may need to run the following to install applesimutils:
+
+```
+/usr/sbin/softwareupdate --install-rosetta --agree-to-license
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+arch -x86_64 brew install wix/brew/applesimutils
+```
+
 ### Running the App
 
 Open your terminal and navigate to where you'd like this repo to be downloaded. You can clone the repo by typing the following into the command line:

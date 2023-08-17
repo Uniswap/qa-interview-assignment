@@ -43,23 +43,25 @@ target 'InstagramClone' do
 end
 
 post_install do |installer|
-  installer.pods_project.build_configurations.each do |config|
-    # Needed for now as Xcode 12 now tries to build/link both arm64 and x86_64 slices for the simulator
-    # but some of our prebuilt deps don't support this
-    # See:
-    # - https://stackoverflow.com/a/63955114/158525
-    # - https://github.com/facebook/react-native/issues/29984
-    # - https://apontious.com/2020/08/23/arm-wrestling-your-ios-simulator-builds/
-    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
-  end
+  find_and_replace("../node_modules/react-native/React/CxxBridge/RCTCxxBridge.mm",
+ "_initializeModules:(NSArray<id<RCTBridgeModule>> *)modules", "_initializeModules:(NSArray<Class> *)modules")
+ find_and_replace("../node_modules/react-native/ReactCommon/turbomodule/core/platform/ios/RCTTurboModuleManager.mm",
+ "RCTBridgeModuleNameForClass(strongModule))", "RCTBridgeModuleNameForClass(Class(strongModule)))")
+
+ installer.pods_project.build_configurations.each do |config|
+  config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+ end
 end
 
-target 'InstagramClone-tvOS' do
-  # Pods for InstagramClone-tvOS
-
-  target 'InstagramClone-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
+def find_and_replace(dir, findstr, replacestr)
+ Dir[dir].each do |name|
+     text = File.read(name)
+     replace = text.gsub(findstr,replacestr)
+     if text != replace
+         puts "Fix: " + name
+         File.open(name, "w") { |file| file.puts replace }
+         STDOUT.flush
+     end
+ end
+ Dir[dir + '*/'].each(&method(:find_and_replace))
 end

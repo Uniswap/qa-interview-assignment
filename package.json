@@ -1,13 +1,14 @@
 {
-  "name": "cLabsQATakehome",
+  "name": "UniswapQATakehome",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
-    "ios": "react-native run-ios",
+    "ios": "react-native run-ios --simulator='iPhone 14 Pro'",
     "start": "react-native start",
     "setup": "yarn install && ./setup.sh",
-    "test": "yarn run detox build --configuration ios.sim.debug && yarn run detox test --configuration ios.sim.debug"
+    "test": "yarn run detox build --configuration ios.sim.debug && yarn run detox test --configuration ios.sim.debug",
+    "postinstall":"yarn run patch-package react-native"
   },
   "dependencies": {
     "@appandflow/masonry-list": "^0.4.0",
@@ -21,6 +22,7 @@
     "linkify-it": "^1.2.4",
     "mocha": "^7.1.1",
     "native-base": "^2.13.8",
+    "patch-package": "^8.0.0",
     "react": "16.8.6",
     "react-native": "^0.63.4",
     "react-native-animatable": "1.3.2",
@@ -88,7 +90,7 @@
         "build": "set -o pipefail && xcodebuild -workspace ios/InstagramClone.xcworkspace -scheme InstagramClone -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build EXCLUDED_ARCHS=arm64 DETOX=1",
         "type": "ios.simulator",
         "device": {
-          "type": "iPhone 11"
+          "type": "iPhone 14 Pro"
         }
       },
       "android.emu.debug": {
